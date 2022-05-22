@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var deCypher = function(encrypted_text){
+            var decrypted_text ="";
+            for (var i=0; i<encrypted_text.length; i+=5){
+                var myTemp = encrypted_text.charAt(i) + encrypted_text.charAt(i+1) + encrypted_text.charAt(i+2) + encrypted_text.charAt(i+3)+ encrypted_text.charAt(i+4);
+                decrypted_text = decrypted_text + String.fromCharCode(myTemp);
+            }
+            return decrypted_text;
+        }
+
+        function decryptText(){
+            var decyphered_text = deCypher (document.getElementById("textarea_encrypted_text_id").value);
+            console.log(decyphered_text);
+        }
+    </script>
+
+</head>
+<body>
+    Encrypted Text : <textarea name="" id="textarea_encrypted_text_id" cols="30" rows="10"></textarea>
+    <button id="btn_submit_id" onClick=decryptText()>Decrypt</button>
+</body>
+</html>
